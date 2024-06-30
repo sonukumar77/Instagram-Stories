@@ -54,11 +54,12 @@ const Stories = () => {
   }, [currentIndex, currentStory]);
 
   return (
-    <div className="min-h-screen max-w-screen-sm min-w-80 sm:w-full border-2 m-auto shadow-md border-gradient-instagram">
+    <div className="h-full max-w-screen-sm min-w-80 sm:w-full m-auto shadow-md bg-white rounded-[50px] p-4">
+      <h1 className="text-3xl">Instagram</h1>
       <div className="flex space-x-2 overflow-x-auto hide-scrollbar border-b-[1px] px-1 border-gray-400">
         {stories.map((item, i) => (
           <Story
-            key={i}
+            key={item.id}
             handleStoryClick={() => handleStory(item)}
             reels={item}
           />
