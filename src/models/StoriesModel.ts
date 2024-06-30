@@ -1,6 +1,7 @@
 import { MediaType } from "@/constants";
 
 export interface StoriesData {
+  id: number;
   url: string;
   type: MediaType;
   created_at: string;
