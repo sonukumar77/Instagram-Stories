@@ -10,11 +10,7 @@ const MediaCard = ({ reel }: MediaCardProps) => {
       const { type, url } = reel;
       if (type === "video") {
         return (
-          <video
-            src={url}
-            autoPlay
-            className="w-full h-full object-cover"
-          />
+          <video src={url} autoPlay className="w-full h-full object-cover" />
         );
       }
 
