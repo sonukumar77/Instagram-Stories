@@ -30,24 +30,25 @@ const Modal = ({
     const { name, profile_img, is_verified, reels, created_at } = currentStory;
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-        <div className="bg-transparent min-h-screen min-w-screen max-w-screen-sm min-w-80 md:w-full rounded-lg overflow-y-auto relative">
-          <div className="w-full h-screen relative">
+      <div className="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 min-h-screen p-2">
+        <div className="bg-transparent h-full max-w-screen-sm min-w-80 sm:w-full m-auto rounded-[50px] overflow-y-auto relative">
+          <div className="h-full max-w-screen-sm min-w-80 sm:w-full m-auto relative">
             <MediaCard reel={reels[currentIndex]} />
           </div>
 
-          <div className="absolute top-0 right-0 bg-transparent w-full h-full p-2">
-            <div className="w-full bottom-2 border-green-400 flex space-x-1 mt-2">
-              {reels.map((_, i) =>
+          <div className="absolute top-0 right-0 bg-transparent w-full h-full">
+            <div className="w-full bottom-2 flex space-x-1 mt-4 px-6 py-2">
+              {reels.map((item, i) =>
                 currentIndex == i ? (
                   <ProgressBar
+                    key={item.id}
                     duration={STORY_DELAY}
                     onComplete={() => null}
                     className={`${calculateWidth(reels.length)}`}
                   />
                 ) : (
                   <Stepper
-                    key={i}
+                    key={item.id}
                     className={`${calculateWidth(reels.length)} ${
                       currentIndex === i ? "bg-white" : "bg-gray-700"
                     }`}
@@ -56,7 +57,7 @@ const Modal = ({
               )}
             </div>
 
-            <div className="flex justify-between items-center mt-2">
+            <div className="flex justify-between items-center mt-2 px-2">
               <div className="flex justify-center items-center space-x-1">
                 <Avatar
                   url={profile_img || DefaultAvatar}
@@ -71,18 +72,17 @@ const Modal = ({
                 ) : null}
                 {created_at ? (
                   <span className="text-xs text-white">
-                    {moment(created_at).fromNow()}
+                    {moment(reels[currentIndex].created_at).fromNow()}
                   </span>
                 ) : null}
               </div>
               <button
-                className="text-white text-2xl cursor-pointer p-2"
+                className="text-white text-2xl cursor-pointer py-2"
                 onClick={onClose}
               >
                 <CrossIcon className="fill-red-700 stroke-white w-6 h-6" />
               </button>
             </div>
-
             {/* next prev button on reels */}
             <div className="w-full h-5/6 flex justify-between">
               <div
