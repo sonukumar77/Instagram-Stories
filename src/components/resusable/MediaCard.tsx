@@ -13,7 +13,6 @@ const MediaCard = ({ reel }: MediaCardProps) => {
           <video
             src={url}
             autoPlay
-            controls
             className="w-full h-full object-cover"
           />
         );
