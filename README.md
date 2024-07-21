@@ -60,7 +60,7 @@ Welcome to the Instagram Stories App! This Next Js application allows users to v
 
 ## Hosted Link
 
-Visit the hosted application: [Instagram Stories App](https://instagram-stories.netlify.app/)
+Visit the hosted application: [Instagram Stories App](https://my-ig-stories.vercel.app/)
 
 ## Screenshots
 
